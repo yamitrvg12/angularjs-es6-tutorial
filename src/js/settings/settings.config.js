@@ -5,6 +5,7 @@ function SettingsConfig($stateProvider) {
     .state('app.settings', {
         url: '/settings',
         controller: 'SettingsCtrl',
+        controllerAs: '$ctrl',
         templateUrl: 'settings/settings.html',
         title: 'Settings',
         resolve: {

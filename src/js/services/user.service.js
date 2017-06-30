@@ -80,6 +80,7 @@ export default class User {
     ensureAuthIs(bool) {
         let deferred = this._$q.defer();
 
+
         this.verifyAuth().then((authValid) => {
             // if it's the opposite, redirect home
             if(authValid !== bool) {
@@ -91,5 +92,18 @@ export default class User {
         })
 
         return deferred.promise;
+    }
+
+    update(fields) {
+        return this._http({
+            url: this._AppConstants.api + '/user',
+            method: 'PUT',
+            data: {
+                user: fields
+            }
+        }).then((res) => {
+            this.current = res.data.user;
+            return res.data.user;
+        })
     }
 }
