@@ -14,7 +14,6 @@ export default class AuthCtrl {
         this._User.attemptAuth(this.authType, this.formData).then(
             (res) => {
                 this.isSubmitting = true;
-                console.log(res);
             },
             (err) => {
                 this.isSubmitting = false;
