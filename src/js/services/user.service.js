@@ -57,10 +57,7 @@ export default class User {
             
             this._http({
                 url: this._AppConstants.api + '/user',
-                method: 'GET',
-                headers: {
-                    Authorization: 'Token ' + this._JWT.get()
-                }
+                method: 'GET'
             }).then(
                 (res) => {
                     this.current = res.data.user;
