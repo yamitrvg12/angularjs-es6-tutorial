@@ -1,11 +1,16 @@
 import angular from 'angular';
+// Directives
+import ShowAuthed from './show-authed.directive';
+// Components
+import ListErrors from './list-errors.component';
+import FollowBtn from './buttons/follow-btn.component';
+
 
 let componentsModule = angular.module('app.components', []);
 
-import ListErrors from './list-errors.component';
-componentsModule.component('listErrors', ListErrors)
-
-import ShowAuthed from './show-authed.directive';
 componentsModule.directive('showAuthed', ShowAuthed);
+componentsModule.component('listErrors', ListErrors);
+componentsModule.component('followBtn', FollowBtn);
+
 
 export default componentsModule;
