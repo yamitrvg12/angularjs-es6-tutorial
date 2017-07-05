@@ -13,4 +13,7 @@ servicesModule.service('JWT', JwtService);
 import Profile from './profile.service';
 servicesModule.service('Profile', Profile);
 
+import ArticlesService from './articles.service';
+servicesModule.service('Articles', ArticlesService);
+
 export default servicesModule;

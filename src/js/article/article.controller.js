@@ -1,6 +1,8 @@
 class ArticleCtrl {
-  constructor() {
+  constructor(article) {
     'ngInject';
+
+    console.log(article);
 
   }
 }
