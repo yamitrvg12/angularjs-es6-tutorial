@@ -56,4 +56,18 @@ export default class Articles {
             method: 'DELETE'
         });
     }
+
+    favorite(slug) {
+        return this._$http({
+            url: this._AppConstants.api + '/articles/' + slug + '/favorite',
+            method: 'POST'
+        })
+    }
+
+    unFavorite(slug) {
+        return this._$http({
+            url: this._AppConstants.api + '/articles/' + slug + '/favorite',
+            method: 'DELETE'
+        })
+    }
 }

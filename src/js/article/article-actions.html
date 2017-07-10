@@ -17,10 +17,13 @@
   <!-- Otherwise, show favorite & follow buttons -->
   <span ng-hide="$ctrl.canModify">
     <follow-btn user="$ctrl.article.author"></follow-btn>
-    <button class="btn btn-sm btn-outline-primary">
+    <favorite-btn article="$ctrl.article">
+      {{ $ctrl.article.favorited ? 'Unfavorited' : 'Favorited' }} Article <span class="counter">({{ $ctrl.article.favoritesCount }})</span>
+    </favorite-btn>
+    <!--<button class="btn btn-sm btn-outline-primary">
       <i class="ion-heart"></i>
       &nbsp;
       Favorite Article <span class="counter">(29)</span>
-    </button>
+    </button>-->
   </span>
 </article-meta>
