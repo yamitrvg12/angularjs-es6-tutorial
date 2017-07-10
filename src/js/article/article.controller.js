@@ -6,8 +6,6 @@ class ArticleCtrl {
 
     this.article = article;
 
-    console.log(article);
-
     // Update the title of this page
     $rootScope.setPageTitle(this.article.title);
 
