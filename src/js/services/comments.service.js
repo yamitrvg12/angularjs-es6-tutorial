@@ -20,4 +20,14 @@ export default class Comments {
 			(res) => res.data.comment
 		);
 	}
+
+	// Retrive the comments for an article
+	getAll(slug) {
+		return this._$http({
+			url: `${this._AppConstants.api}/articles/${slug}/comments`,
+			method: 'GET',
+		}).then(
+			(res) => res.data.comments
+		);
+	}
 }

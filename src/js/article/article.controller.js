@@ -14,6 +14,11 @@ class ArticleCtrl {
     // Transform the markdown into HTML
     this.article.body = $sce.trustAsHtml(marked(this.article.body), { sanitize: true });
 
+    // Get comments for this article
+    Comments.getAll(this.article.slug).then(
+      (comments) => this.comments = comments,
+    );
+
     // Initialize blank comment form
     this.resetCommentForm();
   }
@@ -31,7 +36,7 @@ class ArticleCtrl {
 
     this._Comments.add(this.article.slug, this.commentForm.body).then(
       (comment) => {
-        console.log(comment);
+        this.comments.unshift(comment);
         this.resetCommentForm();
       },
       (err) => {
