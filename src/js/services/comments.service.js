@@ -21,9 +21,17 @@ export default class Comments {
 		);
 	}
 
+	// Delete a comment from an article
+	destroy(commentId, articleSlug) {
+		return this._$http({	
+			url: `${this._AppConstants.api}/articles/${articleSlug}/comments/${commentId}`,
+			method: 'DELETE',
+		});
+	}
+
 	// Retrive the comments for an article
 	getAll(slug) {
-		return this._$http({
+		return this._$http({	
 			url: `${this._AppConstants.api}/articles/${slug}/comments`,
 			method: 'GET',
 		}).then(

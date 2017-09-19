@@ -71,25 +71,11 @@
           <a ui-sref="app.login">Sign in</a> or <a ui-sref="app.register">Sign up</a> to add comments on this article.
         </p>
 
-        <div class="card" ng-repeat="data in $ctrl.comments">
-          <div class="card-block">
-            <p class="card-text" ng-bind="::data.body"></p>
-          </div>
-          <div class="card-footer">
-            <a class="comment-author" ui-sref="app.profile({ username: data.author.username })">
-              <img ng-src="{{ ::data.author.image }}" class="comment-author-img" />
-            </a>
-            &nbsp;
-            <a class="comment-author" 
-              ui-sref="app.profile({ username: data.author.username })"
-              ng-bind="::data.author.username">
-            </a>
-            <span class="date-posted"
-              ng-bind="::data.createdAt | date: 'longDate' ">
-            </span>
-          </div>
-        </div>
-
+        <comment 
+          ng-repeat="cmt in $ctrl.comments" 
+          data="cmt"
+          delete-cb="$ctrl.deleteComment(cmt.id, $index)">
+        </comment>
 
       </div>
     </div>
